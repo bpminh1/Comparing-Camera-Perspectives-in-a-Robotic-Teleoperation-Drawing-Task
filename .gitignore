@@ -28,5 +28,4 @@ MUJOCO_LOG.TXT
 
 # Data files
 data/
-src/analysis/data_analysis
 src/play_around
