@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.co
+*.egg-info
+dist/
+build/
+
+# Conda
+*.conda
+*.tar.bz2
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Mujoco
+MUJOCO_LOG.TXT
+
+# macOS
+.DS_Store
+
+# Temporary files
+~$*
+
+# Data files
+data/
+src/analysis/data_analysis
+src/play_around

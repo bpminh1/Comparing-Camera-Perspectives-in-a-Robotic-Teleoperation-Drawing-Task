@@ -1,0 +1,111 @@
+participant:
+  id: "P30"
+  first_camera: "dynamic_cam"
+
+mujoco_workspace:
+  x_min: 0.15
+  x_max: 0.55
+  y_min: -0.2
+  y_max: 0.2
+
+world_workspace:
+  width: 40
+  height: 40
+
+tutorial_shapes: 
+  - tutorial
+
+shapes:
+  - circle
+  - square
+  - triangle
+  - heart
+  - star
+  - flower
+  - writing
+
+materials:
+  circle: "circle_mat"
+  square: "square_mat"
+  triangle: "triangle_mat"
+  heart: "heart_mat"
+  star: "star_mat"
+  flower: "flower_mat"
+  writing: "writing_mat"
+  tutorial: "tutorial_mat"
+
+trial_structure:
+  tutorial_repetitions: 1
+  block1_repetitions: 1
+  block2_repetitions: 1
+  block3_repetitions: 2
+  randomize_shapes: true
+
+cameras:
+  options:
+    - stationary_cam
+    - dynamic_cam
+
+questionnaires:
+  general:
+    sickness:
+      - "I felt sick to my stomach during the experiment."
+      - "I felt dizzy during the experiment."
+      - "I felt like I was going to vomit during the experiment."
+      - "I felt disoriented during the experiment."
+      - "I felt fatigued during the experiment."
+    camera_perspective:
+      - "It was easy to use this camera perspective."
+      - "It did not take long to get used to this camera perspective."
+      - "I felt that the camera perspective provided a good view of the workspace."
+      - "I felt that I could have performed better with a different camera perspective."
+      - "Overall, I am satisfied with this camera perspective."
+    accuracy:
+      - "I was able to accurately perform the tasks during the experiment."
+      - "I felt that the shapes were too difficult to follow during the experiment."
+      - "I looked at the whole shape before trying to follow it during the experiment."
+    control:
+      - "I felt that the robot responded well to my commands during the experiment."
+      - "I felt that I had good control over the robot during the experiment."
+    latency:
+      - "I felt that there was a delay between my commands and the robot's response during the experiment."
+      - "I felt that the latency affected my performance during the experiment."
+
+  preference:
+    - "For each shape, I preferred this camera perspective over the other one."
+
+slides:
+  intro_slides: 
+    - "blank.png"
+    - "welcome.png"
+    - "explanation.png"
+    - "setup.png"
+    - "process.png"
+    - "how-to-draw.png"
+  end_block_slide: "block-end.png"
+  questionnaire_slide: "questionnaire.png"
+  block3_slide_stationary_cam: "block-3-stationary.png"
+  block3_slide_dynamic_cam: "block-3-dynamic.png"
+  last_slide: "last.png"
+
+  stationary_cam_slides:
+    tutorial_slides:
+      - "tutorial-1-stationary.png"
+      - "tutorial-2-stationary.png"
+    block1_slide: "block-1-stationary.png"
+    block2_slide: "block-2-stationary.png"
+    choose_camera_slide: "choose-cam-stationary.png"
+
+  dynamic_cam_slides:
+    tutorial_slides:
+      - "tutorial-1-dynamic.png"
+      - "tutorial-2-dynamic.png"
+    block1_slide: "block-1-dynamic.png"
+    block2_slide: "block-2-dynamic.png"
+    choose_camera_slide: "choose-cam-dynamic.png"
+
+paths:
+  mujoco_model: "third_party/franka_emika_panda/scene.xml"
+  mediapipe_model: "third_party/mediapipe/hand_landmarker.task"
+  output_dir: "data/collected"
+  slides_dir: "data/slides"

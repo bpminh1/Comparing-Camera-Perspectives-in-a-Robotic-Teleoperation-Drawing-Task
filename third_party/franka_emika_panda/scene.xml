@@ -1,0 +1,50 @@
+<mujoco model="panda scene">
+  <include file="panda.xml"/>
+
+  <statistic center="0.3 0 0.4" extent="1"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20" offwidth="2560" offheight="1920"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+      markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <texture name="wood_tex" type="2d" file="assets/wood.png"/>
+    <material name="table_wood" texture="wood_tex" reflectance="0.0"/>
+
+    <texture name="white_tex" type="2d" width="1024" height="1024" builtin="flat" rgb1="1 1 1"/>
+    <texture name="circle_tex" type="2d" file="assets/target_shapes/circle.png"/>
+    <texture name="square_tex" type="2d" file="assets/target_shapes/square.png"/>
+    <texture name="triangle_tex" type="2d" file="assets/target_shapes/triangle.png"/>
+    <texture name="heart_tex" type="2d" file="assets/target_shapes/heart.png"/>
+    <texture name="star_tex" type="2d" file="assets/target_shapes/star.png"/>
+    <texture name="flower_tex" type="2d" file="assets/target_shapes/flower.png"/>
+    <texture name="writing_tex" type="2d" file="assets/target_shapes/writing.png"/>
+    <texture name="tutorial_tex" type="2d" file="assets/target_shapes/tutorial.png"/>
+
+    <material name="white_mat" texture="white_tex" texuniform="true"/>
+    <material name="circle_mat" texture="circle_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="square_mat" texture="square_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="triangle_mat" texture="triangle_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="heart_mat" texture="heart_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="star_mat" texture="star_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="flower_mat" texture="flower_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="writing_mat" texture="writing_tex" texrepeat="1 1" texuniform="false"/>
+    <material name="tutorial_mat" texture="tutorial_tex" texrepeat="1 1" texuniform="false"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
+    <geom name="table" pos="0.55 0 0.0" size="0.4 0.5 0.399" type="box" material="table_wood"/>
+    <geom name="canvas" pos="0.35 0 0.4" size="0.20 0.20 0.01" type="plane" material="white_mat"/>
+
+    <camera name="stationary_cam" pos="0.770 0.004 0.703" xyaxes="0.009 1.000 -0.000 -0.576 0.005 0.818"/>
+    <camera name="top" pos="0.5 0 2" euler="0 0 1.57" fovy="45"/>
+  </worldbody>
+</mujoco>
